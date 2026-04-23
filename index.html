@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stick It</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <img src="assets/logo.png" alt="">
+    </nav>
+    <main>
+        <div id="aboutGrid">
+            <div id="about">
+                <h2>About</h2>
+                <h2>+</h2>
+            </div>
+            <p id="aboutText"></p>
+        </div>
+        
+        <div class="choices">
+            <div id="Paste">
+                <h2>Note Contribution</h2>
+            </div>
+            <div id="choicesInput">
+                <div class="input">
+                <input type="date" id="date">
+                <br>
+                <br>
+                <textarea id="message" name="message" rows="10" cols="30" placeholder="Paste your note here..."></textarea>
+                <br>
+                    <br>
+                    <br>
+                    <button id="submitBtn">Log</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="canvas">
+            <div class="content" id="content">
+            </div>
+        </div>
+    </main>
+
+    <script type="module" src="main.js"></script>
+</body>
+</html>

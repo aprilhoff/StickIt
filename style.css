@@ -1,0 +1,166 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+
+@font-face {
+    font-family: 'SF Pro Rounded';
+    src: url(assets/SF-Pro-Rounded-Regular.otf) format('opentype');
+}
+body {
+  margin: 0;
+  overflow: hidden; 
+  background-color: #e0e0e0;
+
+}
+
+.canvas {
+    position: absolute;
+    width: 5000px;
+    height: 5000px;
+    transform-origin: 0 0;
+}
+
+.content img{
+    width: 22rem;
+}
+nav img{
+    width: 150px;
+    margin: 10px;
+}
+.content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.choices{
+    margin: 20px;
+    width: 300px;
+    bottom: 10px;
+    position: fixed;
+    background-color: #ffffff;
+    z-index: 4;
+    border: 1px solid black;
+}
+
+input{
+    font-size: 15px;
+    background-color: #ffffff;
+    border: none;
+    padding-top: 10px;
+}
+
+.note{
+    background-size:contain;
+    width: 400px;
+    height:400px;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content:center; 
+    align-items: center;   
+    flex-direction: column;
+    user-select: none;
+}
+.note:hover{
+    cursor:move;
+}
+
+.message{
+    font-size: 20px;
+    width: 45%;
+    color: black;
+    font-family: 'SF Pro Rounded', 'SF Pro Icons', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+    text-align: left;
+}
+.date{
+    font-size: 15px;
+    font-family: 'SF Pro Rounded', 'SF Pro Icons', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+}
+textarea {
+  resize: none;
+}
+
+#submitBtn {
+  border: 1px solid black;
+  color: black; 
+  padding: 5px 10px; 
+  cursor: pointer; 
+  font-size: 15px;
+  background-color: white;
+  font-family: 'SF Pro Rounded', 'SF Pro Icons', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+}
+
+#submitBtn:hover {
+  background-color: #ffdc4e;  
+}
+#submitBtn:active {
+    background-color: #9b9b9b; 
+    color: rgb(0, 0, 0);
+}
+label{
+    font-size: 20px;
+    color: black;
+    font-family: 'SF Pro Rounded', 'SF Pro Icons', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+}
+
+
+
+#aboutGrid{
+position: fixed;
+    display: grid;
+    top:20px;
+    right: 20px;
+    background-color: #ffffff;
+    padding: 0;
+    z-index: 4;
+    border: 1px solid black;
+    width: 220px;
+}
+#Paste{
+    background-color: #ffdc4e;
+    padding: 10px;
+}
+h2{
+    font-family: 'SF Pro Rounded', 'SF Pro Icons', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+    font-size: 15px;
+}
+
+#about{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0;
+    background-color: #ffdc4e;  
+}
+#about h2{
+    padding: 10px; 
+}
+#about:hover{
+    cursor: pointer;
+}
+#about:active{
+    background-color: #9b9b9b; 
+    color: rgb(0, 0, 0);
+}
+#aboutText{
+    font-size: 15px;
+    font-family: 'SF Pro Rounded', 'SF Pro Icons', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+}
+
+#aboutText{
+    background-color: white;
+    padding:10px;
+}
+
+#choicesInput{
+    padding-left: 10px;
+    padding-bottom: 10px;
+}
+
+a{
+    color: black;
+}
