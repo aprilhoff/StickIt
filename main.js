@@ -1,8 +1,15 @@
 // infinite canvas on mouse scroll
-const canvas = document.querySelector(".canvas");
-let x = 0, y = 0;
-const CANVAS_W = 5000; 
-const CANVAS_H = 5000;
+let canvas = document.querySelector(".canvas");
+let y = 0, x = 0;
+
+// Loading Screen
+function hideLoader() {
+    const loader = document.querySelector(".loading-screen");
+    loader.style.opacity = "0";
+    loader.style.pointerEvents = "none";
+    setTimeout(() => { loader.style.display = "none"; }, 800);
+}
+
 
 // options for background of notes
 const noteImage = {
@@ -12,7 +19,12 @@ const noteImage = {
     pink: 'assets/Pink.png',
     yellow: 'assets/Yellow.png',
     red: 'assets/Red.png',
-    purple: 'assets/Purple.png'
+    purple: 'assets/Purple.png',
+    green2: 'assets/Green2.png',
+    pink2: 'assets/Pink2.png',
+    orange2 : 'assets/Orange2.png',
+    yellow2: 'assets/Yellow2.png',
+    red2 : 'assets/Red2.png',
 }
 
 // making the notes draggable
@@ -51,20 +63,6 @@ function makeDraggable(el) {
         el.style.cursor = '';
     });
 }
-
-document.addEventListener("wheel", e => {
-    e.preventDefault();
-
-    x -= e.deltaX;
-    y -= e.deltaY;
-
-    console.log(x, y, -(CANVAS_W - window.innerWidth), -(CANVAS_H - window.innerHeight));
-
-    x = Math.min(0, Math.max(-(CANVAS_W - window.innerWidth), x));
-    y = Math.min(0, Math.max(-(CANVAS_H - window.innerHeight), y));
-
-    canvas.style.transform = `translate(${x}px, ${y}px)`;
-}, { passive: false });
 
 
 // adding JSON Bin API info here
@@ -115,14 +113,12 @@ document.getElementById('submitBtn').addEventListener('click', async () => {
         document.getElementById('message').value = '';
         document.getElementById('date').value = '';
         document.getElementById('submitBtn').innerText ='Log';
-        refresh();
+        await refresh();
         
     }
 });
 
-
 async function refresh() {
-   
     const notes = await getNotes();
     document.getElementById('content').innerHTML = notes.map((note, i) => {
 
@@ -143,19 +139,20 @@ async function refresh() {
             </div>
         `;
     }).join('');
-    //pan to lastNoteX and lastNoteY
-   // window.scrollTo(lastNoteX, lastNoteY)
     
     document.querySelectorAll('.note').forEach(makeDraggable);
-    let lastNote = document.getElementById(`note-${(await getNotes()).length - 1}`);
-        window.scrollTo(parseInt(lastNote.style.left) - window.innerWidth/2 + 200, parseInt(lastNote.style.top) - 200 );
-
+    const lastNote = document.getElementById(`note-${notes.length - 1}`);
+    canvas.scrollTo({
+        left: parseInt(lastNote.style.left) - window.innerWidth / 2 + 200,
+        top: parseInt(lastNote.style.top) - window.innerHeight / 2 + 200,
+        behavior: 'smooth'
+});
+    hideLoader();
 }
+
 refresh();
-//setInterval(refresh, 10000);
 
 // about button activate
-
 let aboutBtn = document.getElementById('about');
 aboutBtn.addEventListener('click', () => {
     const displayArea = document.getElementById("aboutText");
@@ -165,3 +162,5 @@ aboutBtn.addEventListener('click', () => {
     const plusSign = aboutBtn.querySelector('h2:nth-child(2)');
     plusSign.innerText = isVisible ? '+' : '-';
 });
+
+
