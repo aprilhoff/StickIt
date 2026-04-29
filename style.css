@@ -27,7 +27,7 @@
 
     .typewriter h1{
         overflow: hidden;
-        border-right: .15em solid #ffdc4e;
+        border-right: .15em solid #FFEE2F;
         white-space: nowrap;
         animation: 
         typing 3.5s steps(30, end),
@@ -43,7 +43,7 @@
         /* The typewriter cursor effect */
         @keyframes blink-caret {
         from, to { border-color: transparent }
-        50% { border-color: #ffdc4e }
+        50% { border-color: #FFEE2F }
         }
 
 @font-face {
@@ -70,8 +70,8 @@ body {
     width: 22rem;
 }
 nav img{
-    width: 150px;
-    margin: 10px;
+    width: 120px;
+    margin: 20px;
 }
 .content {
     
@@ -116,7 +116,7 @@ input{
 
 .message{
     font-size: 20px;
-    width: 45%;
+    max-width: 45%;
     color: black;
     font-family: 'SF Pro Rounded', 'SF Pro Icons', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
     text-align: left;
@@ -140,7 +140,7 @@ textarea {
 }
 
 #submitBtn:hover {
-  background-color: #ffdc4e;  
+  background-color: #FFEE2F;  
 }
 #submitBtn:active {
     background-color: #9b9b9b; 
@@ -162,11 +162,11 @@ position: fixed;
     background-color: #ffffff;
     padding: 0;
     z-index: 4;
-    border: 1px solid black;
     width: 220px;
+    border: 1px solid black;
 }
 #Paste{
-    background-color: #ffdc4e;
+    background-color: #FFEE2F;
     padding: 10px;
 }
 h2{
@@ -179,7 +179,7 @@ h2{
     justify-content: space-between;
     align-items: center;
     padding: 0;
-    background-color: #ffdc4e;  
+    background-color: #FFEE2F;  
 }
 #about h2{
     padding: 10px; 

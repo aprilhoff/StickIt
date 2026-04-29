@@ -157,10 +157,9 @@ let aboutBtn = document.getElementById('about');
 aboutBtn.addEventListener('click', () => {
     const displayArea = document.getElementById("aboutText");
     const isVisible = displayArea.innerText.length > 0;
-    displayArea.innerHTML = isVisible ? '' : 'Stick It invites users to paste their personal notes from the Notes app. Aiming to reflect on the human impulse to record thoughts while also exposing how quickly that meaning can dissolve when context is lost or removed. Notes should remain anonymous.<br><br>Typeface used is SF Pro Rounded by Apple.<br><br>Made by <a href="https://aprilhoffmeister.xyz" target="_blank">April Hoffmeister, 2026.</a>';
+    displayArea.innerHTML = isVisible ? '' : 'Stick It invites users to paste their personal notes from the Notes app. The project reflects on the human impulse to record thoughts while also exposing how quickly that meaning can dissolve when context is lost or removed. Notes should remain anonymous.<br><br>Typeface used is SF Pro Rounded by Apple.<br><br>Made by <a href="https://aprilhoffmeister.xyz" target="_blank">April Hoffmeister</a>, 2026.';
 
     const plusSign = aboutBtn.querySelector('h2:nth-child(2)');
     plusSign.innerText = isVisible ? '+' : '-';
 });
-
 
