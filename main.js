@@ -7,7 +7,7 @@ function hideLoader() {
     const loader = document.querySelector(".loading-screen");
     loader.style.opacity = "0";
     loader.style.pointerEvents = "none";
-    setTimeout(() => { loader.style.display = "none"; }, 800);
+    setTimeout(() => { loader.style.display = "none"; }, 1000);
 }
 
 
@@ -104,14 +104,21 @@ document.getElementById('submitBtn').addEventListener('click', async () => {
     const messageValue = message.trim();
     const dateValue = date.trim();
 
+    if (!dateValue || dateValue.trim().length === 0){
+        getElementById('submitBtn').style.cursor = 'not-allowed';
+        return;
+    }
+    
     if (messageValue && dateValue) {
         document.getElementById('submitBtn').innerText ='Loading...';
-        
+
         const randomColor = colors[Math.floor(Math.random() * colors.length)]; 
         await addNote({ message: messageValue, date: dateValue, color: randomColor });
 
         document.getElementById('message').value = '';
         document.getElementById('date').value = '';
+
+
         document.getElementById('submitBtn').innerText ='Log';
         await refresh();
         
@@ -157,9 +164,47 @@ let aboutBtn = document.getElementById('about');
 aboutBtn.addEventListener('click', () => {
     const displayArea = document.getElementById("aboutText");
     const isVisible = displayArea.innerText.length > 0;
-    displayArea.innerHTML = isVisible ? '' : 'Stick It invites users to paste their personal notes from the Notes app. The project reflects on the human impulse to record thoughts while also exposing how quickly that meaning can dissolve when context is lost or removed. Notes should remain anonymous.<br><br>Typeface used is SF Pro Rounded by Apple.<br><br>Made by <a href="https://aprilhoffmeister.xyz" target="_blank">April Hoffmeister</a>, 2026.';
+    displayArea.innerHTML = isVisible ? '' : 'Stick It invites users to paste their personal notes from the Notes app. Reflecting on the human impulse to record thoughts while also exposing how quickly that meaning can dissolve when context is lost or removed. Notes should remain anonymous.<br><br>Typeface used is SF Pro Rounded by Apple.<br><br>Made by <a href="https://aprilhoffmeister.xyz" target="_blank">April Hoffmeister</a>, 2026.';
 
     const plusSign = aboutBtn.querySelector('h2:nth-child(2)');
     plusSign.innerText = isVisible ? '+' : '-';
 });
 
+
+
+// word count 
+let textInput = document.getElementById('message');
+let wordCountDisplay = document.getElementById('wordCount');
+
+textInput.addEventListener('input', () => {
+    let text = textInput.value.trim();
+    let words = text.split(/\s+/);
+    let count = text === "" ? 0 : words.length;
+    wordCountDisplay.textContent = count;
+
+    if (count > 20) {
+        wordCountDisplay.style.fontWeight = 'bold';
+        wordCountDisplay.style.color = 'red';
+        document.getElementById('submitBtn').disabled = true;
+        document.getElementById('submitBtn').style.cursor = 'not-allowed';
+        document.getElementById('submitBtn').style.backgroundColor = 'white';
+    } else {
+        wordCountDisplay.style.fontWeight = 'normal';
+        wordCountDisplay.style.color = 'black';
+        document.getElementById('submitBtn').disabled = false;
+        document.getElementById('submitBtn').style.cursor = 'pointer';
+    }
+});
+
+// controls 
+
+let controlT = document.getElementById('controlT');
+
+controlT.addEventListener('mouseover', () => {
+    controlT.innerHTML = 'Scroll = Move<br>Notes = Draggable';
+    controlT.style.cursor='non-allowed';
+}) 
+
+controlT.addEventListener('mouseout',() => {
+    controlT.innerHTML= 'Controls?';
+})

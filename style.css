@@ -82,9 +82,9 @@ nav img{
 }
 
 .choices{
-    margin: 20px;
+    margin-left: 20px;
     width: 300px;
-    bottom: 10px;
+    bottom: 20px;
     position: fixed;
     background-color: #ffffff;
     z-index: 4;
@@ -142,6 +142,13 @@ textarea {
 #submitBtn:hover {
   background-color: #FFEE2F;  
 }
+
+
+#submitBtn:hover {
+    background-color: #FFEE2F;
+}
+
+
 #submitBtn:active {
     background-color: #9b9b9b; 
     color: rgb(0, 0, 0);
@@ -204,8 +211,38 @@ h2{
 #choicesInput{
     padding-left: 10px;
     padding-bottom: 10px;
+    padding-right: 10px;
 }
 
 a{
     color: black;
+}
+
+.word-count{
+    font-size: 10px;
+    color: black;
+    font-family: 'SF Pro Rounded', 'SF Pro Icons', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+    margin-top: 5px;
+    text-align: right;
+}
+
+.controls{
+    position: fixed;
+    bottom:20px;
+    right:20px;
+    font-size: 15px;
+    font-family: 'SF Pro Rounded', 'SF Pro Icons', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
+    z-index: 10000;
+    cursor:default;
+}
+
+@media screen and (max-width: 768px) {
+    .note{
+        width: 300px;
+        height: 300px;
+    }
+    .message{
+        font-size: 15px;
+        max-width: 50%;
+    }
 }
